@@ -1,40 +1,70 @@
 # UK–France Power Spread Option Pricing  
 **Valuing Transmission Rights via Kirk’s Approximation and Monte Carlo Simulation**
 
+*Author: Lyndon Odia*
+*Project Status: Completed*
+
 ## Overview
 This project values **UK–France interconnector transmission capacity** by treating it as a **spread option** between the UK (simulated) and France (ENTSO-E) day-ahead power prices.  
 Using both **Kirk’s analytical approximation** and **Monte Carlo simulation**, we estimate the fair value of the right to flow power between markets, incorporating *real market volatility, correlation, and capacity costs* from **JAO monthly auctions**.
 
-**Objective:** Quantify the fair €/MWh value of transmission optionality and understand how volatility, correlation, and capacity costs shape interconnector pricing.
+## Objective:
+- Quantify the fair €/MWh value of UK↔FR transmission optionality.
+- Compare Kirk’s closed-form approximation with Monte Carlo simulation.
+- Integrate *capacity cost* (from JAO auctions) as strike (K).
+- Analyse sensitivity to volatility, correlation, and expiry.
 
-## ⚙️ Project Structure
+## Project Structure
+
+
 power-spread-option-pricing/
-│
-├── data/
-│   ├── raw/                         # ENTSO-E & Simulated inputs
-│   └── processed/                   # Cleaned, merged hourly dataset
-│
-├── notebooks/
-│   ├── 01_intro_and_objective.ipynb
-│   ├── 02_data_collection.ipynb
-│   ├── 03_eda_spread_analysis.ipynb
-│   ├── 04_kirk_model.ipynb
-│   ├── 05_monte_carlo_simulation.ipynb
-│   └── 06_sensitivity_analysis.ipynb
-│
-├── docs/
-│   ├── figures/                     # Key visuals and charts
-│   ├── jao_capacity_cost_reference/ # Auction screenshots + explanation
-│   ├── executive_summary.pdf
-│   └── presentation.pptx
-│
-├── outputs/
-│   ├── key_results_summary.csv
-│   └── kirk_vs_mc_comparison.csv
-│
-├── requirements.txt
-└── README.md
 
+│
+
+├── data/
+
+│   ├── raw/                     # ENTSO-E & simulated inputs
+
+│   └── processed/               # Cleaned hourly merged dataset
+
+│
+
+├── notebooks/
+
+│   ├── 01_intro_and_objective.ipynb
+
+│   ├── 02_data_collection.ipynb
+
+│   ├── 03_eda_spread_analysis.ipynb
+
+│   ├── 04_kirk_model.ipynb
+
+│   ├── 05_monte_carlo_simulation.ipynb
+
+│   └── 06_sensitivity_analysis.ipynb
+
+│
+
+├── docs/
+
+│   ├── figures/                 # Key visuals & sensitivity plots
+
+│   ├── jao_capacity_cost_reference/  # Auction screenshots & explanation
+
+│   └── executive_summary.pdf
+
+│
+
+├── outputs/
+
+│   ├── key_results_summary.csv
+
+│   └── kirk_vs_mc_comparison.csv
+
+│
+
+└── presentation.pptx
+ 
 
 ## Methodology
 | Step | Description | Output |
@@ -62,26 +92,7 @@ power-spread-option-pricing/
 
 ## Model Frameworks
 ### 1. Kirk’s Approximation (Analytical)
-\[
-\sigma_k = \sqrt{\sigma_1^2 - 2b\rho\sigma_1\sigma_2 + b^2\sigma_2^2}, \quad b = \frac{S_2}{S_2 + K}
-\]
-\[
-d_1 = \frac{\ln(S_1 / (S_2 + K)) + 0.5\sigma_k^2 T}{\sigma_k\sqrt{T}}, \quad
-d_2 = d_1 - \sigma_k\sqrt{T}
-\]
-\[
-C = S_1 N(d_1) - (S_2 + K)N(d_2)
-\]
----
 ### 2. Monte Carlo Simulation (100,000 paths)
-\[
-F_{1,T} = S_1 e^{(-0.5\sigma_1^2T + \sigma_1\sqrt{T}Z_1)}, \quad
-F_{2,T} = S_2 e^{(-0.5\sigma_2^2T + \sigma_2\sqrt{T}Z_2)}
-\]
-\[
-Z_2 = \rho Z_1 + \sqrt{1-\rho^2}Z_t, \quad
-\text{Payoff} = \max(F_{1,T} - F_{2,T} - K, 0)
-\]
 Monte Carlo average of payoffs = Fair option value.
 
 
@@ -94,13 +105,14 @@ Monte Carlo average of payoffs = Fair option value.
 | Capacity Cost (K) | **0.76** | From JAO GB→FR auctions |
 | **Net Option Value** | **≈ €16.00/MWh** | Fair value **after capacity cost already included in payoff** |
 | **1 GW × 720h** | **≈ €11.52m/month** | Implied interconnector notional value |
+
  *Both models converge closely, validating the assumptions and confirming the robustness of the analytical approximation.*
 
  > **Note:** The strike \(K = €0.76/MWh\) is embedded inside both models’ payoff (\(\max(S_1 − S_2 − K, 0)\)).  
 > Therefore, the reported €16.0/MWh is **net of the capacity cost**.  
 > The €0.76/MWh auction price represents an *upfront premium* that traders pay for this optionality — not a further deduction.
 
- ## 🔍 Sensitivity Insights
+ ## Sensitivity Insights
 | Driver | Relationship | Observation |
 |---------|---------------|--------------|
 | **Volatility (σ)** | ↑ σ → ↑ Option Value | Convex payoff from uncertainty |
@@ -122,14 +134,17 @@ See `/docs/figures/` for plots:
 
 ##  Reproducibility
 1. Clone this repository  
-  ```bash
-  git clone https://github.com/lo-devx/power-spread-option-pricing-main.git
-  cd power-spread-option-pricing-main
+```bash
+git clone https://github.com/lo-devx/power-spread-option-pricing-main.git
+cd power-spread-option-pricing-main
+```
 2. Install dependencies
+```bash
 pip install -r requirements.txt
-
+```
 3. Run notebooks in order (01_ → 06_).
 4. Outputs and figures saved to /docs/figures/ and /outputs/.
+
 
 
 ## Limitations & Future Enhancements
@@ -139,6 +154,8 @@ Area Current Enhancement
 - Correlation Fixed Time-varying correlation (DCC-GARCH)
 - Costs No transaction/imbalance Include balancing, losses, fees
 - Directionality GB->FR only Add FR->GB asymmetry
+- Pull 5+ years of real UK and France day-ahead prices so we can stress-test across different market regimes, especially 2022.
+- Reflect reality - Cap flows at interconnector limits, deduct transaction costs, skip hours when capacity is offline.
 
 ## Capacity Cost Reference
 Source: Joint Allocation Office (JAO)
