@@ -49,17 +49,11 @@ power-spread-option-pricing-main/
 
 │   ├── figures/                 # Key visuals & sensitivity plots
 
-│   ├── jao_capacity_cost_reference/  # Auction screenshots & explanation
-
 │   └── executive_summary.pdf
 
 │
 
-├── outputs/
-
-│   ├── key_results_summary.csv
-
-│   └── kirk_vs_mc_comparison.csv
+└── config.py
 
 │
 
