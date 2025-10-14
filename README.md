@@ -174,3 +174,10 @@ Average clearing price: €0.76/MWh
 | **Price & Market News** | [Montel Online](https://www.montelnews.com/) | European power, gas, and carbon news and forward price commentary. |
 | **Transmission & Interconnectors** | [ENTSO-E System Development Reports](https://www.entsoe.eu/outlooks/) | Insights into cross-border capacity planning and future interconnector projects. |
 | **Educational / Learning** | [EEX Academy (European Energy Exchange)](https://www.eex.com/en/academy) | Short online courses on power and gas trading basics. |
+
+
+
+
+
+[Presentation Deck (Download powerpoint deck)](docs/executive_summary_power_spread_option_pricing.pptx)
+
