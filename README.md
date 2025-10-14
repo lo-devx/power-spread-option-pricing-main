@@ -17,7 +17,7 @@ Using both **Kirk’s analytical approximation** and **Monte Carlo simulation**,
 ## Project Structure
 
 
-power-spread-option-pricing/
+power-spread-option-pricing-main/
 
 │
 
