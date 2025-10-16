@@ -179,7 +179,7 @@ Average clearing price: €0.76/MWh
 
 
 ### Communications
-[Presentation Deck (Download powerpoint deck)](docs/executive_summary_power_spread_option_pricing.pptx)
+[Presentation Deck (Download powerpoint deck)](docs/lyndon_odia_power_spread_option_pricing.pdf)
 
 ### Contact
 Lyndon Odia | lynodia@outlook.com
