@@ -55,9 +55,6 @@ power-spread-option-pricing-main/
 
 └── config.py
 
-│
-
-└── presentation.pptx
  
 
 ## Methodology
