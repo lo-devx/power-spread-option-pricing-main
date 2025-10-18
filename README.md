@@ -110,6 +110,7 @@ Monte Carlo average of payoffs = Fair option value.
 | **Correlation (ρ)** | ↑ ρ → ↓ Option Value | Convergent markets reduce spreads |
 | **Expiry (T)** | ↑ T → ↑ Option Value | More time = more optionality |
 | **Capacity Cost (K)** | ↑ K → ↓ Value | Linear cost offset effect |
+
 See `/docs/figures/` for plots:
 - Volatility Sensitivity → *Value vs σ*
 - Correlation Sensitivity → *Value vs ρ*
