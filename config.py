@@ -9,7 +9,7 @@ processed_data_dir = "/Users/Lyndon.Odia/Desktop/lo-devx/power-spread-option-pri
 START_DATE = datetime(2025, 1, 1, 0, 0)
 END_DATE = datetime(2025, 8, 1, 23, 0)
 
-#FX
+#FX Conversion rates
 FX_GBP_EUR = 1.17
 
 #Define API keys 
