@@ -177,7 +177,7 @@ Average clearing price: €0.76/MWh
 
 
 ### Communications
-[Presentation Deck (Download powerpoint deck)](docs/Executive Summary - UK - France Power Spread Option Pricing (L. Odia, Oct 2025).pdf) 
+[Presentation Deck (Download powerpoint deck)](docs/Executive_Summary_UK_France_Power_Spread_Option_Pricing_L_Odia_Oct_2025.pdf)
 
 ### Contact
 Lyndon Odia | lynodia@outlook.com
