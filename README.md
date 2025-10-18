@@ -71,7 +71,7 @@ power-spread-option-pricing-main/
 ## Base Case Inputs (Jan–Jul 2025)
 | Parameter | Description | Value |
 |------------|--------------|--------|
-| S₁ | UK mean price (N2EX, EUR/MWh) | **81.104** |
+| S₁ | UK mean price (Simulated, EUR/MWh) | **81.104** |
 | S₂ | FR mean price (ENTSO-E, EUR/MWh) | **68.064** |
 | σ₁ | UK annualised volatility | **0.198** |
 | σ₂ | FR annualised volatility | **1.008** |
@@ -177,7 +177,7 @@ Average clearing price: €0.76/MWh
 
 
 ### Communications
-[Presentation Deck (Download powerpoint deck)](docs/lyndon_odia_power_spread_option_pricing.pdf)
+[Presentation Deck (Download powerpoint deck)](docs/Executive Summary - UK - France Power Spread Option Pricing (L. Odia, Oct 2025).pdf) 
 
 ### Contact
 Lyndon Odia | lynodia@outlook.com
