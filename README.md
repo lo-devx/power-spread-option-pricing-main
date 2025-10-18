@@ -60,7 +60,7 @@ power-spread-option-pricing-main/
 ## Methodology
 | Step | Description | Output |
 |------|--------------|--------|
-| 1️ | **Data Collection** – FR via ENTSO-E API (A44), UK via simulated CSV. | Hourly merged dataset |
+| 1️ | **Data Collection** – FR via ENTSO-E API, UK via simulated CSV. | Hourly merged dataset |
 | 2️ | **Data Cleaning** – Align timestamps, convert GBP→EUR (FX = 1.17), check for missing hours (213 gaps). | `UK_FR_day_ahead_hourly_merged_spread.csv` |
 | 3️ | **EDA** – Compute spread distribution, volatility, correlation. | `03_eda_spread_analysis.ipynb` |
 | 4️ | **Kirk’s Approximation** – Closed-form spread option pricing. | `04_kirk_model.ipynb` |
