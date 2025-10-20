@@ -129,6 +129,7 @@ celerybeat.pid
 
 # Environments
 .env
+config.local.py
 .venv
 env/
 venv/
